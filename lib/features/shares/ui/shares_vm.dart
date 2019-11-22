@@ -54,7 +54,7 @@ class SharesVm extends ViewModel {
         .toCancelableOperation()
         .then((shares) => shares.sort(_compareByShortName))
         .then(
-      (shares) => _sharesNotifier.setValue(shares),
+      _sharesNotifier.setValue,
       onError: (error, st) {
         print(error);
         print(st);

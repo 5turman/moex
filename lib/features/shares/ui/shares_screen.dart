@@ -35,7 +35,7 @@ class SharesScreen extends StatelessWidget {
 
             return asyncResult.when(
               isLoading: () {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },
@@ -55,7 +55,7 @@ class SharesScreen extends StatelessWidget {
                 return Center(
                   child: GestureDetector(
                     onTap: viewModel.onReload,
-                    child: Text('Error'),
+                    child: const Text('Error'),
                   ),
                 );
               },

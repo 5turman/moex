@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:flutter/widgets.dart';
 
 class TimeZoneChangeDetector extends StatefulWidget {
-  final Widget child;
-
   const TimeZoneChangeDetector({Key key, this.child}) : super(key: key);
+
+  final Widget child;
 
   @override
   _TimeZoneChangeDetectorState createState() => _TimeZoneChangeDetectorState();
@@ -52,13 +52,13 @@ class _TimeZoneChangeDetectorState extends State<TimeZoneChangeDetector>
 }
 
 class TimeZoneChangeNotifier extends InheritedWidget {
-  final String timeZone;
-
   const TimeZoneChangeNotifier({
     Key key,
     @required this.timeZone,
     @required Widget child,
   }) : super(key: key, child: child);
+
+  final String timeZone;
 
   @override
   bool updateShouldNotify(TimeZoneChangeNotifier oldWidget) =>

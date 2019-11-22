@@ -5,9 +5,9 @@ import 'package:com.example.moex/features/shares/domain/model/share.dart';
 import 'api/shares_api.dart';
 
 class RemoteDataSource extends SharesDataSource {
-  final SharesApi _api;
-
   RemoteDataSource(this._api) : assert(_api != null);
+
+  final SharesApi _api;
 
   @override
   Future<BuiltList<Share>> getAll() {

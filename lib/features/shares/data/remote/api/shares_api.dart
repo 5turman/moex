@@ -17,7 +17,7 @@ abstract class SharesApi extends ChopperService {
 }
 
 Response convertSharesResponse<T>(Response response) {
-  final json = jsonDecode(response.body);
+  final json = jsonDecode(response.body as String) as Map<String, dynamic>;
   final shares = SharesDeserializer.deserialize(json);
   return response.replace(body: shares);
 }

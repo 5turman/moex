@@ -7,6 +7,7 @@ import 'package:com.example.moex/init.dart';
 import 'package:com.example.moex/core/widgets/timezone_change_notifier.dart';
 import 'package:provider/provider.dart';
 
+// ignore: avoid_void_async
 void main() async {
   await init();
   runApp(MyApp());

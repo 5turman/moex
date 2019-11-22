@@ -12,17 +12,14 @@ class CommandStore {
   }
 
   Stream<Command> asStream() {
-    if (_stream == null) {
-      _stream = _controller.stream.asBroadcastStream(
-        onListen: (subscription) {
-          subscription.resume();
-        },
-        onCancel: (subscription) {
-          subscription.pause();
-        },
-      );
-    }
-    return _stream;
+    return _stream ??= _controller.stream.asBroadcastStream(
+      onListen: (subscription) {
+        subscription.resume();
+      },
+      onCancel: (subscription) {
+        subscription.pause();
+      },
+    );
   }
 
   void close() {

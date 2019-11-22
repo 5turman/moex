@@ -1,10 +1,10 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:com.example.moex/app_colors.dart';
 import 'package:com.example.moex/features/shares/domain/model/share.dart';
 import 'package:com.example.moex/features/shares/ui/change_painter.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 const double _lineSpace = 2;
 
@@ -47,7 +47,7 @@ class ShareListTile extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              if (share.last != null) ...[
+              if (share.last != 0) ...[
                 Text(
                   share.last.toString(),
                   style: const TextStyle(
@@ -55,28 +55,27 @@ class ShareListTile extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                if (share.lastToPrev != null)
-                  Padding(
-                    padding: const EdgeInsets.only(top: _lineSpace),
-                    child: Row(
-                      children: <Widget>[
-                        CustomPaint(
-                          size: const Size(12, 10),
-                          painter: ChangePainter(share.lastToPrev),
+                Padding(
+                  padding: const EdgeInsets.only(top: _lineSpace),
+                  child: Row(
+                    children: <Widget>[
+                      CustomPaint(
+                        size: const Size(12, 10),
+                        painter: ChangePainter(share.lastToPrev),
+                      ),
+                      const SizedBox(
+                        width: _lineSpace,
+                      ),
+                      Text(
+                        share.lastToPrev.toString(),
+                        style: const TextStyle(
+                          color: AppColors.secondaryText,
+                          fontSize: 14,
                         ),
-                        const SizedBox(
-                          width: _lineSpace,
-                        ),
-                        Text(
-                          share.lastToPrev.toString(),
-                          style: const TextStyle(
-                            color: AppColors.secondaryText,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                ),
                 const SizedBox(height: _lineSpace),
                 Text(
                   _formatDateTime(share.timestamp),

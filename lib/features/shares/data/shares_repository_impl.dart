@@ -6,10 +6,10 @@ import 'package:com.example.moex/features/shares/domain/shares_repository.dart';
 import 'shares_data_source.dart';
 
 class SharesRepositoryImpl extends SharesRepository {
+  SharesRepositoryImpl(this._localDataSource, this._remoteDataSource);
+
   final SharesDataSource _localDataSource;
   final SharesDataSource _remoteDataSource;
-
-  SharesRepositoryImpl(this._localDataSource, this._remoteDataSource);
 
   @override
   Future<BuiltList<Share>> getShares(bool refreshing) async {

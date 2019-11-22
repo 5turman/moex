@@ -8,9 +8,9 @@ import 'package:com.example.moex/features/shares/domain/model/share.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LocalDataSource extends SharesDataSource {
-  final DatabaseProvider _databaseProvider;
-
   LocalDataSource(this._databaseProvider);
+
+  final DatabaseProvider _databaseProvider;
 
   @override
   Future<BuiltList<Share>> getAll() async {
@@ -52,10 +52,10 @@ extension ShareExtension on Share {
 
 extension MapExtension on Map<String, dynamic> {
   Share toShare() => Share(
-        id: this[SharesColumn.id],
-        shortName: this[SharesColumn.shortName],
-        timestamp: this[SharesColumn.timestamp],
-        last: this[SharesColumn.last],
-        lastToPrev: this[SharesColumn.lastToPrev],
+        id: this[SharesColumn.id] as String,
+        shortName: this[SharesColumn.shortName] as String,
+        timestamp: this[SharesColumn.timestamp] as int,
+        last: this[SharesColumn.last] as double,
+        lastToPrev: this[SharesColumn.lastToPrev] as double,
       );
 }

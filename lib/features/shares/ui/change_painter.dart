@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:com.example.moex/app_colors.dart';
+import 'package:flutter/cupertino.dart';
 
 class ChangePainter extends CustomPainter {
-  final double change;
-
   ChangePainter(this.change);
+
+  final double change;
 
   @override
   void paint(Canvas canvas, Size size) {

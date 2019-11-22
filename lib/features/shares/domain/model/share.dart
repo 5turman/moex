@@ -1,6 +1,8 @@
+import 'package:meta/meta.dart';
+
 class Share {
   Share({
-    this.id,
+    @required this.id,
     this.shortName,
     this.timestamp,
     this.last,
@@ -13,6 +15,7 @@ class Share {
   final double last;
   final double lastToPrev;
 
+  @override
   String toString() =>
       'Share(id=$id, shortName=$shortName, timestamp=$timestamp, last=$last, lastToPrev=$lastToPrev)';
 }

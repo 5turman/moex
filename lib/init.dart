@@ -16,7 +16,7 @@ Future init() async {
 }
 
 Future _loadTimeZones() async {
-  final asset = 'res/tz/2019c.tzf';
+  const asset = 'res/tz/2019c.tzf';
   final byteData = await rootBundle.load(asset);
   initializeDatabase(byteData.buffer.asUint8List());
 }

@@ -4,12 +4,6 @@ import 'package:meta/meta.dart';
 
 @immutable
 class AsyncResult<T> {
-  final bool loading;
-
-  final T value;
-
-  final Object error;
-
   const AsyncResult._({this.loading = false, this.value, this.error});
 
   factory AsyncResult.loading() => const AsyncResult._(loading: true);
@@ -20,6 +14,10 @@ class AsyncResult<T> {
     assert(error != null);
     return AsyncResult._(error: error);
   }
+
+  final bool loading;
+  final T value;
+  final Object error;
 
   R when<R>({
     @required R Function() isLoading,
