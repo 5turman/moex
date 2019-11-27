@@ -1,7 +1,8 @@
 import 'package:com.example.moex/core/view_model.dart';
 import 'package:flutter/widgets.dart';
-import 'package:kiwi/kiwi.dart' as di;
 import 'package:provider/provider.dart';
+
+import 'object_graph.dart';
 
 class ViewModelProvider<T extends ViewModel> extends StatelessWidget {
   const ViewModelProvider({@required this.builder}) : assert(builder != null);
@@ -12,8 +13,8 @@ class ViewModelProvider<T extends ViewModel> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider<T>(
       builder: (context) {
-        final container = Provider.of<di.Container>(context, listen: false);
-        return container.resolve<T>();
+        final resolver = Provider.of<ObjectResolver>(context, listen: false);
+        return resolver.resolve<T>();
       },
       dispose: (context, viewModel) => viewModel.dispose(),
       child: Consumer<T>(

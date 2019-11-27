@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:com.example.moex/core/widgets/timezone_change_notifier.dart';
+import 'package:com.example.moex/di/object_graph.dart';
 import 'package:com.example.moex/di/setup.dart';
 import 'package:com.example.moex/features/shares/ui/shares_screen.dart';
 import 'package:com.example.moex/generated/i18n.dart';
 import 'package:com.example.moex/init.dart';
-import 'package:com.example.moex/core/widgets/timezone_change_notifier.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 // ignore: avoid_void_async
@@ -29,8 +30,8 @@ class MyApp extends StatelessWidget {
       withCountry: false,
     );
 
-    return Provider.value(
-      value: buildDiContainer(),
+    return Provider<ObjectResolver>.value(
+      value: buildObjectGraph(),
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,
