@@ -1,16 +1,17 @@
 import 'package:chopper/chopper.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
 import 'package:timezone/timezone.dart';
+
+import 'build.dart';
 
 Future init() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await _loadTimeZones();
 
-  if (!kReleaseMode) {
+  if (Build.debug) {
     _enableHttpLogging();
   }
 }
